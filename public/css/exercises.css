@@ -48,7 +48,7 @@ section{
 
     .exercises>div{
         background: #FFAE00 0% 0% no-repeat padding-box;
-        border-radius: 18px;
+        border-radius: 50px 50px 18px 18px;
         height: 700px;
     
         display: flex;
