@@ -36,3 +36,27 @@ section{
     display: flex;
     justify-content: space-between;
 }
+
+
+@media only screen and (max-device-width: 420px) {
+    section{
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        overflow: auto;
+    }
+
+    .exercises>div{
+        background: #FFAE00 0% 0% no-repeat padding-box;
+        border-radius: 18px;
+        height: 700px;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .exercises>div>img {
+        margin: 0;
+    }
+}
