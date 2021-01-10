@@ -1,51 +1,316 @@
 section{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: auto;
     grid-gap: 2em;
     padding: 2em;
     overflow: auto;
+    height: 90%;
 }
 
-.profile>div>img {
-    height: 50%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 1em 1em 0 0;
-}
-
-.profile>div>div {
-    height: 50%;
-    color: white;
-    margin: 1em;
+#profile {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    background: #FFAE00 0% 0% no-repeat padding-box;
 }
+
+.statistic{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.user-info{
+    background: #F7FFAA 0% 0% no-repeat padding-box;
+    border-radius: 18px 18px 0px 0px;
+    margin: 0;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.more-info{
+    height: 30%;
+    text-align: center;
+    font: normal normal bold 10px/11px Arial;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.user-info img {
+    width: 12em;
+    object-fit:fill;
+    border-radius: 50%;
+    margin: 0 auto;
+
+}
+
+.user-info p {
+    margin: 0 auto;
+}
+
+#name{
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    margin-top: 1.5em;
+}
+
+#description{
+    text-align: center;
+    font: normal normal normal 14px/30px Arial;
+    letter-spacing: 0px;
+    color: #000306;
+}
+
+.tags{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    gap: 1em;
+}
+#tag{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BB8E33;
+    border-radius: 4px;
+    text-align: center;
+    font: normal normal normal 10px/12px Arial;
+    letter-spacing: 0px;
+    color: #BB8E33;
+    padding: 1em;
+
+}
+
 
 .profile>div{
-    background: #FFAE00 0% 0% no-repeat padding-box;
+    
     border-radius: 18px;
-    height: 400px;
+    
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.social-section{
+.teammates{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    height: 50%;
+    text-align: center;
+
+    row-gap: 2em;
 }
+
+.teammates span{
+    font: normal normal bold 16px/17px Arial;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.teammates-photo{
+    display: flex;
+    column-gap: 0.5em;
+    justify-content: center;
+
+}
+
+.teammates-photo img{
+    height: 5em;
+    border-radius: 50%;
+    border: 2px solid #BB8E33;
+}
+
+.fav-exercises{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:0 auto;
+    height: 50%;
+    text-align: center;
+    row-gap: 2em;
+}
+
+.fav-exercises span{
+    font: normal normal bold 16px/17px Arial;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+.fav-exercises-photo{
+    display: flex;
+    gap:1em;
+    justify-content: center;
+
+}
+
+.fav-exercises-photo img{
+    height: 5em;
+
+}
+
+.statistic{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.formforform {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 5em;
+    padding-top: 5em;
+    
+}
+.formforform select {
+    width: 100%;
+    
+}
+.formforform input{
+    width: 100%;
+    padding: 0;
+    padding-top: 2em;
+    margin: auto 0;
+}
+
+.formforform button{
+    width: 60%;
+    margin:0 auto;
+    margin-top: 2em;
+}
+
+.diagram{
+    display: flex;
+    justify-content: center;
+    height: 50%;
+}
+
+.graph .labels.x-labels {
+    text-anchor: middle;
+  }
+  
+  .graph .labels.y-labels {
+    text-anchor: end;
+  }
+  
+  
+  .graph {
+    height: 500px;
+    width: 800px;
+  }
+  
+  .graph .grid {
+    stroke: #ccc;
+    stroke-dasharray: 0;
+    stroke-width: 1;
+  }
+  
+  .labels {
+    font-size: 13px;
+  }
+  
+  .label-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    fill: black;
+  }
+  
+  .data {
+    fill: red;
+    stroke-width: 1; 
+  }
 
 
 @media only screen and (max-device-width: 420px) {
     section{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
         flex-direction: column;
         padding: 2em;
         overflow: auto;
     }
+    #profile{
+        height: 70vh;
+    }
 
+    .statistic{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .user-info img {
+        height: 12em;
+
+    }
+    #name{
+        margin-top: 0.5em;
+        font-size:46px;
+
+    }
+    #description{
+        margin-top: 0.5em;
+        font-size: 42px;
+    }
+    #tag{
+        font-size: 35px;
+    }
+    .teammates{
+        row-gap:0.5em;
+    }
+    .teammates span{
+
+        font-size: 35px;
+    }
+    .teammates-photo{
+        column-gap: 0.1em;
+    
+    }
+    .teammates-photo img{
+        height: 3.5em;
+        margin: 0;
+    }
+    .fav-exercises{
+        row-gap:0.5em;
+
+    }
+    .fav-exercises span{    
+        font-size: 35px;
+    }
+    .fav-exercises-photo{
+        gap:0.3em;
+    }
+    .fav-exercises-photo img{
+        height: 3.5em;
+        margin:0;
+    }
+    .statistic{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .formforform {
+        margin: 0 1em;
+        padding-top: 1em;
+    }
+    .diagram{
+        height: 30vh;
+    }
+    .graph {
+        margin-top: 2em;
+        height: 100%;
+    }
+
+    option{
+        width: 50%;
+        font-size: 15px;
+    }
+
+/*
     .profile>div{
         background: #FFAE00 0% 0% no-repeat padding-box;
         border-radius: 50px 50px 18px 18px;
@@ -59,4 +324,5 @@ section{
     .profile>div>img {
         margin: 0;
     }
+    */
 }
