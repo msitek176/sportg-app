@@ -68,6 +68,7 @@ input{
     align-items:center;
     justify-content: flex-start;
     height: 100vh;
+    overflow-y:visible;
 }
 
 nav{
@@ -77,11 +78,7 @@ nav{
 
     display: flex;
     flex-direction: column;
-    justify-content:flex-start ;
-}
-
-main{
-    width: 80vw;
+    justify-content:flex-start;
 }
 
 nav > img {
@@ -91,8 +88,11 @@ nav > img {
 
 a {
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     line-height: 2em;
+    color: black;
+    width: 90%;
+    
 }
 
 li i {
@@ -100,14 +100,16 @@ li i {
 }
 
 .button{
+    display: block;
+    width: 9em;
+    min-width: 5em;
     border: 1px solid #FFFFFF;
     border-radius: 1em;
-    margin-left: 1em;
+    margin-left: 1.5em;
     text-align: center;
     letter-spacing: 0.7px;
     color:white;
     padding: 0.2em;
-    width: 60%;
 }
 
 ul{
@@ -120,6 +122,7 @@ ul{
     padding: 0;
     width: calc(100% - 40px);
     position: relative;
+   
 }
 
 li{
@@ -142,7 +145,8 @@ li:last-child{
 main{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
+    width: 80vw;
 }
 
 header{
@@ -209,7 +213,6 @@ header{
 
     .base-container{
         flex-direction: column;
-
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -240,7 +243,9 @@ header{
         margin: 0;
     }
 
-    nav ul li a{
+
+    
+    nav ul li a span{
         display: none;
     }
 
@@ -329,6 +334,10 @@ header{
         box-sizing: border-box;
         font-size: 40px;
         padding: 0.2em;
+    }
+
+    .button{
+        display: none;
     }
     
 }

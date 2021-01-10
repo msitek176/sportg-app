@@ -1,0 +1,144 @@
+section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2em;
+    padding: 2em;
+}
+
+.page { 
+    height: auto;
+    overflow-y: scroll;
+}
+
+.gyms>div>img {
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1em 1em 0 0;
+}
+
+.gyms>div>div {
+    height: 50%;
+    color: white;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.gyms>div{
+    background: #FFAE00 0% 0% no-repeat padding-box;
+    border-radius: 18px;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.social-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sort {
+    height: 10%;
+}
+
+p {
+    margin-left: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    text-align: left;
+    font: normal normal normal 22px/32px Sitka Text;
+    letter-spacing: 0px;
+    color: #030000;
+}
+
+.radios{
+    display:flex;
+    justify-content: center;
+    text-align: left;
+    padding-top: 0.3em;
+    height: 50%;
+}
+
+label {
+    display: inline-block;  
+    cursor: pointer;  
+    text-shadow: 0 0 1px #fff, 0 0 1px rgba(0,0,0,0.6);
+    position: relative;  
+    padding: 0 2em;  
+    font-size: 0.9em;  
+    text-align: left;
+    font: normal normal normal 22px/32px Sitka Text;
+    letter-spacing: 0px;
+    color: #030000;
+}
+
+input[type=radio] {  
+    display: none;  
+}
+
+label:before {  
+    content: "";  
+    display: inline-block;  
+    width: 1.5em;  
+    height: 1.5em;  
+    border-radius: 50%;
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;   
+    background-color: #fff;
+    box-shadow: inset 0px 0px 5px #FFAE00, 0px 0px 2px rgb(255, 255, 255);  
+}
+
+input[type=radio]:checked + label:before {  
+    content: "\2022";  
+    color: #FFAE00;  
+    text-align: center;
+}
+
+@media only screen and (max-device-width: 420px) {
+    section{
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        overflow: auto;
+    }
+
+    .gyms>div{
+        background: #FFAE00 0% 0% no-repeat padding-box;
+        border-radius: 50px 50px 18px 18px;
+        height: 700px;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .gyms>div>img {
+        margin: 0;
+    }
+
+    .sort {
+        height: 5%;
+    }
+
+    .sort p {
+        font-size: 1em;
+        margin-bottom: 0.7em;
+    }
+    
+    label {
+        transform: scale(1.4);
+        margin-right: 1.5em;
+    }
+
+    label:before {  
+        transform: scale(1.4);
+    }
+   
+
+}
+
