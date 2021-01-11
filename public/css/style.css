@@ -157,19 +157,33 @@ header{
 
 }
 
-.add-exercise{
+.add-exercise {
     background: #FFB300 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     border-radius: 1.5em;
-    color: white;
-    letter-spacing: 0.1em;
     text-align: center;
     width: 20%;
     font-size: 1.2em;
 }
+.add-exercise a{
+    margin:  0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    
+}
 
-.add-exercise > i {
-    padding: 0.5em;
+.add-exercise a span{
+    color: white;
+    letter-spacing: 0.1em;
+
+}
+
+.add-exercise a i {
+    margin: auto 0;
     color: black;
 }
 
