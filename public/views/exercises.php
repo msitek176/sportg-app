@@ -46,10 +46,11 @@
             </header>
             <section class="exercises">
                 <div id="exercise 1">
-                    <img src="public/img/uploads/maxresdefault.jpg">
+                    <img src="public/uploads/<?=$exercise->getImage() ?>">
                     <div>
-                        <h2>Title</h2>
-                        <p>description</p>
+                        <h2><?= $exercise->getName()?></h2>
+                        <span>Series: <?= $exercise->getSeries()?>  Reps: <?= $exercise->getReps()?></span>
+                        <p><?= $exercise->getDescription()?></p>
                         <div class="social-section">
                             <i class="fas fa-heart"> 600</i>
                             <i class="fas fa-minus-square"> 101</i>

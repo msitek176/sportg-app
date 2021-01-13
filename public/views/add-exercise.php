@@ -46,13 +46,19 @@
                 </div>
             </header>
             <section class="settings">
-                    <form class="settings-form">
+                    <form class="settings-form" action="addexercise" method="POST" ENCTYPE="multipart/form-data">
+                        <?php if(isset($messages)){
+                            foreach ($messages as $message){
+                                echo $message;
+                            }
+                        }
+                        ?>
                         <input name="name" type="text" placeholder="exercise name ex.push ups">
-                        <input name="description" type="textarea" placeholder="description">
+                        <textarea name="description" rows="5"  placeholder="description"></textarea>
                         <input name="series" type="text" placeholder="series">
                         <input name="reps" type="text" placeholder="reps">
-                        <input type="file" id="file" aria-label="File browser example">
-                        <button>SAVE</button>
+                        <input type="file" name= "file" id="file" aria-label="File browser example">
+                        <button type="submit"> SAVE</button>
                     </form>
             </section>
         </main>
