@@ -1,4 +1,5 @@
 ✓ pasek z ćwiczeniami, mozliwosc wpisywania i podpowiedzi 
 -wykres do poprawy :)
 -załadowanie podstrony, a nie całej strony w html
--w friends zamiast wyszukiwania cwiczenia, wyszukiwanie znajmoych xD
+✓ w friends zamiast wyszukiwania cwiczenia, wyszukiwanie znajmoych xD
+-przy JS dodać scrollup
