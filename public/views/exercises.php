@@ -45,11 +45,13 @@
                 </div>
             </header>
             <section class="exercises">
+                <?php foreach ($exercises as $exercise): ?>
                 <div id="exercise 1">
-                    <img src="public/uploads/<?=$exercise->getImage() ?>">
+                    <img src="public/uploads/<?=$exercise->getImage(); ?>">
                     <div>
                         <h2><?= $exercise->getName()?></h2>
                         <span>Series: <?= $exercise->getSeries()?>  Reps: <?= $exercise->getReps()?></span>
+                        <span>Time: <?= $exercise->getTime()?>  </span>
                         <p><?= $exercise->getDescription()?></p>
                         <div class="social-section">
                             <i class="fas fa-heart"> 600</i>
@@ -57,57 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="exercise 1">
-                    <img src="public/img/uploads/maxresdefault.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 600</i>
-                            <i class="fas fa-minus-square"> 101</i>
-                        </div>
-                    </div>
-                </div> <div id="exercise 1">
-                    <img src="public/img/uploads/maxresdefault.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 600</i>
-                            <i class="fas fa-minus-square"> 101</i>
-                        </div>
-                    </div>
-                </div> <div id="exercise 1">
-                    <img src="public/img/uploads/maxresdefault.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 600</i>
-                            <i class="fas fa-minus-square"> 101</i>
-                        </div>
-                    </div>
-                </div> <div id="exercise 1">
-                    <img src="public/img/uploads/maxresdefault.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 600</i>
-                            <i class="fas fa-minus-square"> 101</i>
-                        </div>
-                    </div>
-                </div> <div id="exercise 1">
-                    <img src="public/img/uploads/maxresdefault.jpg">
-                    <div>
-                        <h2>Title</h2>
-                        <p>description</p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> 600</i>
-                            <i class="fas fa-minus-square"> 101</i>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach;?>
             </section>
         </main>
     </div>

@@ -2,6 +2,8 @@
 
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Exercise.php';
+require_once __DIR__.'/../repository/ExerciseRepository.php';
+
 
 
 class ExerciseController extends AppController
@@ -11,8 +13,22 @@ class ExerciseController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $messages = [];
+    private $exerciseRepository;
 
-    public function addexercise()
+
+    public function __construct()
+    {
+        parent:: __construct();
+        $this->exerciseRepository = new ExerciseRepository();
+    }
+
+    public function exercises(){
+        $exercises = $this->exerciseRepository->getExercises();
+        $this->render('exercises',['exercises'=>$exercises]);
+
+    }
+
+    public function addExercise()
     {
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
 
@@ -22,9 +38,11 @@ class ExerciseController extends AppController
 
             );
 
-            $exercise= new Exercise($_POST['name'], $_POST['description'],$_POST['reps'],$_POST['series'],$_FILES['file']['name']);
-
-            return $this->render('exercises',['messages'=>$this->messages, 'exercise'=>$exercise]);
+            $exercise= new Exercise($_POST['name'], $_POST['description'],$_POST['reps'],$_POST['series'],$_POST['time'],$_FILES['file']['name']);
+            $this->exerciseRepository->addExercise($exercise);
+            return $this->render('exercises',[
+                'exercises'=> $this ->exerciseRepository->getExercises(),
+                'messages'=>$this->messages, 'exercise'=>$exercise]);
         }
 
         $this->render('add-exercise',['messages'=>$this->messages]);

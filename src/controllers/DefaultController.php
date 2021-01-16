@@ -9,11 +9,7 @@ class DefaultController extends AppController {
         $this->render('login');
     }
 
-    public function exercises(){
-        //dddd display exercises.php
-        $this->render('exercises');
 
-    }
     public function profile(){
         //dddd display exercises.php
         $this->render('profile');
@@ -42,6 +38,11 @@ class DefaultController extends AppController {
     public function addexercise(){
         //dddd display exercises.php
         $this->render('add-exercise');
+
+    }
+    public function register(){
+        //dddd display exercises.php
+        $this->render('register');
 
     }
 

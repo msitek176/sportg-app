@@ -6,7 +6,8 @@ $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('index','DefaultController');
-Routing::get('exercises','DefaultController');
+Routing::get('register','DefaultController');
+Routing::get('exercises','ExerciseController');
 Routing::post('login','SecurityController');
 Routing::post('addexercise','ExerciseController');
 Routing::get('profile','DefaultController');

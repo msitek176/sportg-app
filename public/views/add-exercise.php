@@ -57,6 +57,7 @@
                         <textarea name="description" rows="5"  placeholder="description"></textarea>
                         <input name="series" type="text" placeholder="series">
                         <input name="reps" type="text" placeholder="reps">
+                        <input name="time" type="text" placeholder="time">
                         <input type="file" name= "file" id="file" aria-label="File browser example">
                         <button type="submit"> SAVE</button>
                     </form>

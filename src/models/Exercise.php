@@ -7,14 +7,17 @@ class Exercise
     private $description;
     private $series;
     private $reps;
+    private $image;
+    private $time;
 
-    public function __construct($name, $description, $series, $reps, $image)
+    public function __construct($name, $description, $series, $reps, $image,$time)
     {
         $this->name = $name;
         $this->description = $description;
         $this->series = $series;
         $this->reps = $reps;
         $this->image = $image;
+        $this->time = $time;
     }
 
 
@@ -71,5 +74,15 @@ class Exercise
     {
         $this->image = $image;
     }
-    private $image;
+
+    public function getTime(): string
+    {
+        return $this->time;
+    }
+
+
+    public function setTime(string $time): void
+    {
+        $this->time = $time;
+    }
 }
