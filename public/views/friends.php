@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/friends.css">
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
-    <title>FRIENDS</title>
+    <title>FOLLOWERS</title>
 </head>
 <body>
     <div class="base-container">
@@ -14,7 +14,7 @@
                     <a href="#"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
                 </li>
                 <li>
-                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Friends</span></a>
+                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
                 </li>
                 <li>
                     
@@ -34,7 +34,7 @@
             <header>
                 <div class="search-bar">
                     <form>
-                        <input placeholder="search friends">
+                        <input placeholder="search followers">
                     </form>
                 </div>
                 <div class="add-exercise">

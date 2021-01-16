@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/profile.css">
     <link rel="stylesheet" type="text/css" href="public/css/friend-profile.css">
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
-    <title>FRIEND PROFILE</title>
+    <title>USER PROFILE</title>
 </head>
 <body>
     <div class="base-container">
@@ -15,7 +15,7 @@
                     <a href="#"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
                 </li>
                 <li>
-                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Friends</span></a>
+                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
                 </li>
                 <li>
                     
@@ -59,13 +59,13 @@
                         <div class="add-friend">
                             <a href="#">
                                 <i class="fas fa-plus"></i>
-                                <span>add friend</span>
+                                <span>add follower</span>
                             </a>
                         </div>
                     </div>
                     <div class="more-info">
                         <div class="teammates">
-                            <span>Friends</span>
+                            <span>Followers</span>
                             <div class="teammates-photo">
                                 <img src="public/img/uploads/153681-201912161008-lg2.jpg">
                                 <img src="public/img/uploads/153681-201912161008-lg2.jpg">

@@ -14,7 +14,7 @@
                     <a href="#"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
                 </li>
                 <li>
-                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Friends</span></a>
+                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
                 </li>
                 <li>
                     
@@ -58,7 +58,7 @@
                     </div>
                     <div class="more-info">
                         <div class="teammates">
-                            <span>Friends</span>
+                            <span>Followers</span>
                             <div class="teammates-photo">
                                 <img src="public/img/uploads/153681-201912161008-lg2.jpg">
                                 <img src="public/img/uploads/153681-201912161008-lg2.jpg">

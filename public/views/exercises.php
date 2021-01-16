@@ -14,7 +14,7 @@
                     <a href="#"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
                 </li>
                 <li>
-                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Friends</span></a>
+                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
                 </li>
                 <li>
                     
