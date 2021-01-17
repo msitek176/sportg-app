@@ -27,7 +27,9 @@ class ExerciseRepository extends Repository
                 $exercise['time'],
                 $exercise['series'],
                 $exercise['reps'],
-                $exercise['image']
+                $exercise['image'],
+                $exercise['count'],
+                $exercise['id_exercise']
             );
         }
 
@@ -58,6 +60,7 @@ class ExerciseRepository extends Repository
                 $exercise->getSeries(),
                 $exercise->getReps(),
                 $exercise->getImage()
+
             ]);
         }
 
@@ -66,23 +69,50 @@ class ExerciseRepository extends Repository
         $result =[];
 
         $stmt = $this->database->connect()->prepare('
-        SELECT * FROM exercises
+        SELECT exercises.*, CASE WHEN ela.count is NULL THEN 0 ELSE ela.count END FROM exercises LEFT JOIN exercise_like_amount ela on exercises.id_exercise = ela.id_exercise
         ');
         $stmt->execute();
         $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         foreach ($exercises as $exercise){
+
             $result[] = new Exercise(
                 $exercise['name'],
                 $exercise['description'],
+                $exercise['time'],
                 $exercise['series'],
                 $exercise['reps'],
                 $exercise['image'],
-                $exercise['time']
-
+                $exercise['count'],
+                $exercise['id_exercise']
             );
         }
 
         return $result;
+    }
+
+    public function getExerciseByName(string $searchString)
+    {
+        $searchString = '%' .strtolower($searchString).'%';
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT exercises.*, CASE WHEN ela.count is NULL THEN 0 ELSE ela.count END FROM exercises LEFT JOIN exercise_like_amount ela on exercises.id_exercise = ela.id_exercise WHERE LOWER (name) LIKE :search OR LOWER (description) LIKE :search
+        ');
+        $stmt->bindParam(':search',$searchString,PDO::PARAM_STR);
+        $stmt->execute();
+
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);;
+    }
+
+    public function count(int $id_exercise) {
+        $id_user=1;
+
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO exercise_likes VALUES (?, ?)
+         ');
+
+        $stmt->execute([$id_user, $id_exercise]);
     }
 
 }

@@ -40,10 +40,6 @@ class DefaultController extends AppController {
         $this->render('add-exercise');
 
     }
-    public function register(){
-        //dddd display exercises.php
-        $this->render('register');
 
-    }
 
 }

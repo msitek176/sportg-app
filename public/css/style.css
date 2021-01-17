@@ -206,7 +206,7 @@ header{
 
 }
 
-.search-bar>form>input{
+.search-bar>input{
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     border-radius: 1.5em;

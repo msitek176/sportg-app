@@ -3,6 +3,8 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/exercises.css">
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="./public/js/statistics.js" defer></script>
     <title>EXERCISES</title>
 </head>
 <body>
@@ -33,9 +35,7 @@
         <main>
             <header>
                 <div class="search-bar">
-                    <form>
                         <input placeholder="search exercise">
-                    </form>
                 </div>
                 <div class="add-exercise">
                     <a href="#">
@@ -46,7 +46,7 @@
             </header>
             <section class="exercises">
                 <?php foreach ($exercises as $exercise): ?>
-                <div id="exercise 1">
+                <div id="<?=$exercise->getId();?>">
                     <img src="public/uploads/<?=$exercise->getImage(); ?>">
                     <div>
                         <h2><?= $exercise->getName()?></h2>
@@ -54,7 +54,7 @@
                         <span>Time: <?= $exercise->getTime()?>  </span>
                         <p><?= $exercise->getDescription()?></p>
                         <div class="social-section">
-                            <i class="fas fa-heart"> 600</i>
+                            <i class="fas fa-heart"> <?= $exercise->getCount()?></i>
                             <i class="fas fa-minus-square"> 101</i>
                         </div>
                     </div>
@@ -64,3 +64,25 @@
         </main>
     </div>
 </body>
+
+<template id="exercise-template">
+    <div id="id_exercise">
+        <img src="">
+        <div>
+            <h2>name</h2>
+            <div class="amount">
+                Series:
+                <span id="series">series</span>
+                &nbsp Reps:
+                <span id="reps">reps</span>
+                &nbsp Time:
+                <span id="time">time </span>
+            </div>
+            <p>description</p>
+            <div class="social-section">
+                <i class="fas fa-heart"> 0</i>
+                <i class="fas fa-minus-square"> 0</i>
+            </div>
+        </div>
+    </div>
+</template>

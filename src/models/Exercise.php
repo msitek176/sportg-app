@@ -9,8 +9,10 @@ class Exercise
     private $reps;
     private $image;
     private $time;
+    private $count;
+    private $id_exercise;
 
-    public function __construct($name, $description, $series, $reps, $image,$time)
+    public function __construct($name, $description, $time, $series, $reps, $image,  $count=0, $id_exercise=null)
     {
         $this->name = $name;
         $this->description = $description;
@@ -18,6 +20,8 @@ class Exercise
         $this->reps = $reps;
         $this->image = $image;
         $this->time = $time;
+        $this->count = $count;
+        $this->id_exercise = $id_exercise;
     }
 
 
@@ -41,6 +45,17 @@ class Exercise
     public function setDescription(string $description): void
     {
         $this->description = $description;
+    }
+
+    public function getTime(): string
+    {
+        return $this->time;
+    }
+
+
+    public function setTime(string $time): void
+    {
+        $this->time = $time;
     }
 
     public function getSeries(): string
@@ -75,14 +90,25 @@ class Exercise
         $this->image = $image;
     }
 
-    public function getTime(): string
+    public function getCount(): int
     {
-        return $this->time;
+        return $this->count;
     }
 
 
-    public function setTime(string $time): void
+    public function setCount(int $count): void
     {
-        $this->time = $time;
+        $this->count = $count;
     }
+
+    public function getId()
+    {
+        return $this->id_exercise;
+    }
+
+    public function setId($id_exercise): void
+    {
+        $this->id_exercise = $id_exercise;
+    }
+
 }

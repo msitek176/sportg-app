@@ -3,3 +3,8 @@
 -załadowanie podstrony, a nie całej strony w html
 ✓ w friends zamiast wyszukiwania cwiczenia, wyszukiwanie znajmoych xD
 -przy JS dodać scrollup
+-sprawdzenie czy zalogowany uzytkownik lubi dane cwiczenie- czarne serce, moze odlubić cwiczenie,
+-dodac przycik ulubione cwiczenia
+-ciasteczka
+-uzupelnienie bazy
+-posprzatanie

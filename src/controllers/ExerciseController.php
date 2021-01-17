@@ -38,7 +38,7 @@ class ExerciseController extends AppController
 
             );
 
-            $exercise= new Exercise($_POST['name'], $_POST['description'],$_POST['reps'],$_POST['series'],$_POST['time'],$_FILES['file']['name']);
+            $exercise= new Exercise($_POST['name'], $_POST['description'],$_POST['time'],$_POST['reps'],$_POST['series'],$_FILES['file']['name'],$_POST['count'],$_POST['id_exercise']);
             $this->exerciseRepository->addExercise($exercise);
             return $this->render('exercises',[
                 'exercises'=> $this ->exerciseRepository->getExercises(),
@@ -46,6 +46,30 @@ class ExerciseController extends AppController
         }
 
         $this->render('add-exercise',['messages'=>$this->messages]);
+    }
+
+    public function search()
+    {
+
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]): '';
+
+        if($contentType === "application/json"){
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header ('Content-type: application/json');
+            http_response_code(200);
+
+            echo json_encode($this->exerciseRepository->getExerciseByName($decoded['search']));
+        }
+    }
+
+    protected $id_user=1;
+
+    public function count(int $id_exercise) {
+
+        $this->exerciseRepository->count($id_exercise);
+        http_response_code(200);
     }
 
     private function validate(array $file):bool
@@ -62,4 +86,6 @@ class ExerciseController extends AppController
 
         return true;
     }
+
+
 }
