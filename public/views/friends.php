@@ -3,6 +3,9 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/friends.css">
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
+    <?php
+    session_start();
+    ?>
     <title>FOLLOWERS</title>
 </head>
 <body>

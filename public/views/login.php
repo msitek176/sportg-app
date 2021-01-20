@@ -2,6 +2,10 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <title>LOGIN PAGE</title>
+    <?php
+    session_start();
+    $_SESSION['user_id'] = 0;
+    ?>
 </head>
 <body>
     <div class="container">

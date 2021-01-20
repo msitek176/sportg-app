@@ -7,13 +7,17 @@ class User
     private $password;
     private $name;
     private $surname;
+    private $salt;
 
-    public function __construct(string $email, string $password, string $name, string $surname)
+
+    public function __construct(string $email, string $password, string $name, string $surname, string $salt)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
+        $this->salt = $salt;
+
     }
 
     public function getEmail(): string
@@ -54,6 +58,16 @@ class User
     public function setSurname(string $surname)
     {
         $this->surname = $surname;
+    }
+
+    public function getSalt(): string
+    {
+        return $this->salt;
+    }
+
+    public function setSalt(string $salt)
+    {
+        $this->salt = $salt;
     }
 
 }

@@ -5,6 +5,9 @@
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <script type="text/javascript" src="./public/js/statistics.js" defer></script>
+    <?php
+    session_start();
+    ?>
     <title>EXERCISES</title>
 </head>
 <body>

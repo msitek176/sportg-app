@@ -5,6 +5,9 @@ require_once __DIR__.'/../models/Exercise.php';
 require_once __DIR__.'/../repository/ExerciseRepository.php';
 
 
+session_start();
+$user_id = $_SESSION['user_id'];
+
 
 class ExerciseController extends AppController
 {
@@ -64,7 +67,7 @@ class ExerciseController extends AppController
         }
     }
 
-    protected $id_user=1;
+    //protected $id_user=1;
 
     public function count(int $id_exercise) {
 

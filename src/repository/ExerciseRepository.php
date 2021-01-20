@@ -3,6 +3,7 @@
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Exercise.php';
 
+session_start();
 
 class ExerciseRepository extends Repository
 {
@@ -41,11 +42,10 @@ class ExerciseRepository extends Repository
             VALUES (?,?);
             ' );
 
-            $id_user=1;
 
             $stmt->execute([
-               $id_user,
-               $date->format('Y-m-d'),
+                $_SESSION['user_id']['id_user'],
+                $date->format('Y-m-d'),
             ]);
 
             $stmt = $this->database->connect()->prepare('

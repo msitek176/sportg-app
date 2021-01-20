@@ -4,6 +4,9 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/settings.css">
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
+    <?php
+    session_start();
+    ?>
     <title>SETTINGS</title>
 </head>
 <body>
