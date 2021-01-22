@@ -12,12 +12,15 @@ Routing::post('register','SecurityController');
 Routing::get('exercises','ExerciseController');
 Routing::post('login','SecurityController');
 Routing::post('addexercise','ExerciseController');
-Routing::get('profile','DefaultController');
+Routing::get('profile','ProfileController');
 Routing::get('settings','DefaultController');
 Routing::get('gyms','DefaultController');
 Routing::get('friends','DefaultController');
 Routing::get('friendprofile','DefaultController');
 Routing::post('search','ExerciseController');
-Routing::get('count','ExerciseController');
+Routing::get('addLike','ExerciseController');
+Routing::get('removeLike','ExerciseController');
+Routing::get('ifLike','ExerciseController');
+Routing::post('exerciseDone','ProfileController');
 
 Routing::run($path);

@@ -42,6 +42,9 @@ p{
     flex-direction: column;
     justify-content: space-between;
 }
+.black{
+    color: black;
+}
 .amount{
     display: flex;
     gap:0.2em;

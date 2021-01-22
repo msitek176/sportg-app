@@ -51,12 +51,12 @@
                 <div id="profile">
                     <div class="user-info">
                         <img src="public/img/uploads/153681-201912161008-lg2.jpg">
-                        <p id="name">magda wrestler</p>
-                        <p id="description"> wrestler</p>
+                        <p id="name"> <?=$user->getName();?> <?=$user->getSurname();?></p>
+                        <p id="description"> <?=$user->getDescription();?></p>
                         <div class="tags">
-                            <div id="tag">sdhfoisudafoiashdfu</div>
-                            <div id="tag">tekst</div>
-                            <div id="tag">gym</div>
+                            <div id="tag"><?=$user->getH1();?></div>
+                            <div id="tag"><?=$user->getH2();?></div>
+                            <div id="tag"><?=$user->getH3();?></div>
                         </div>
                     </div>
                     <div class="more-info">
@@ -77,22 +77,29 @@
                     </div>
                 </div>
                 <div class="statistic">
-                    <form class="formforform">
-                        <select>
+                    <form class="formforform" action="exerciseDone" method="POST" ENCTYPE="multipart/form-data">
+                        <select name="exercise">
+
                             <option value=""disabled selected>
                                 Choose an exercise :) 
                             </option>
-                            <option value="push-ups">
-                                push-ups
+                            <?php foreach ($exercises as $exercise): ?>
+                            <option value="<?=$exercise->getId();?>">
+                                <?=$exercise->getName();?>
                             </option>
-                            <option value="squats">
-                                squats
-                            </option>
+                            <?php endforeach;?>
                         </select>
                         <input name="date" type="date" placeholder="Date">
                         <input name="time" type="text" placeholder="time">
                         <input name="note" type="textarea" placeholder="note">
                         <button>ADD</button>
+                        <?php
+                        if(isset($messages)){
+                            foreach($messages as $message) {
+                                echo $message;
+                            }
+                        }
+                        ?>
                     </form>
                     <div class="diagram">
                         <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">

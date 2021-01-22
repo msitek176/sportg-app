@@ -6,7 +6,6 @@ require_once __DIR__.'/../repository/ExerciseRepository.php';
 
 
 session_start();
-$user_id = $_SESSION['user_id'];
 
 
 class ExerciseController extends AppController
@@ -27,6 +26,9 @@ class ExerciseController extends AppController
 
     public function exercises(){
         $exercises = $this->exerciseRepository->getExercises();
+
+
+        //$this->exerciseRepository->ifLike();
         $this->render('exercises',['exercises'=>$exercises]);
 
     }
@@ -69,11 +71,27 @@ class ExerciseController extends AppController
 
     //protected $id_user=1;
 
-    public function count(int $id_exercise) {
-
-        $this->exerciseRepository->count($id_exercise);
+    public function addLike(int $id_exercise) {
+        $this->exerciseRepository->addLike($id_exercise);
         http_response_code(200);
     }
+
+    public function removeLike(int $id_exercise) {
+        $this->exerciseRepository->removeLike($id_exercise);
+        http_response_code(200);
+    }
+
+   /* public function ifLike($id_exercise){
+        echo "tutaj";
+        $like=$this->exerciseRepository->ifLike($id_exercise);
+        if(is_null($like)){
+            $this->exerciseRepository->addLike($id_exercise);
+        }
+        else{
+            $this->exerciseRepository->removeLike($id_exercise);
+        }
+        http_response_code(200);
+    }*/
 
     private function validate(array $file):bool
     {

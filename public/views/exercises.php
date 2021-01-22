@@ -49,19 +49,28 @@
             </header>
             <section class="exercises">
                 <?php foreach ($exercises as $exercise): ?>
-                <div id="<?=$exercise->getId();?>">
-                    <img src="public/uploads/<?=$exercise->getImage(); ?>">
-                    <div>
-                        <h2><?= $exercise->getName()?></h2>
-                        <span>Series: <?= $exercise->getSeries()?>  Reps: <?= $exercise->getReps()?></span>
-                        <span>Time: <?= $exercise->getTime()?>  </span>
-                        <p><?= $exercise->getDescription()?></p>
-                        <div class="social-section">
-                            <i class="fas fa-heart"> <?= $exercise->getCount()?></i>
-                            <i class="fas fa-minus-square"> 101</i>
+                    <div id="<?=$exercise->getId();?>">
+                        <img src="public/uploads/<?=$exercise->getImage(); ?>">
+                        <div>
+                            <h2><?= $exercise->getName()?></h2>
+                            <span>Series: <?= $exercise->getSeries()?>  Reps: <?= $exercise->getReps()?></span>
+                            <span>Time: <?= $exercise->getTime()?>  </span>
+                            <p><?= $exercise->getDescription()?></p>
+                            <div class="social-section">
+                                <i class="fas fa-heart">
+
+
+//tu cos nie tak
+
+
+
+
+
+                                    <?= $exercise->getCount()?></i>
+                                <i class="fas fa-minus-square"> 101</i>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach;?>
             </section>
         </main>

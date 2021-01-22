@@ -2,6 +2,7 @@
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/User.php';
+require_once __DIR__.'/../models/UserInfo.php';
 
 
 class UserRepository extends Repository
@@ -64,6 +65,29 @@ class UserRepository extends Repository
                 ]
             );
 
+        }
+
+        public function getUserInfo($id_user)
+        {
+            $stmt = $this->database->connect()->prepare('
+            SELECT * from user_details  WHERE id_user_details = :id_user
+            ');
+            $stmt->bindParam(':id_user',$id_user,PDO::PARAM_STR);
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($user == false){
+                return null; //exeption better option
+            }
+
+            return new UserInfo($user['name'],
+                $user['surname'],
+                $user['description'],
+                $user['image'],
+                $user['hobby1'],
+                $user['hobby2'],
+                $user['hobby3']);
         }
 
 }
