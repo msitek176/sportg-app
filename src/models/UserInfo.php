@@ -7,19 +7,20 @@ class UserInfo
     private $surname;
     private $description;
     private $image;
-    private $h1;
-    private $h2;
+    private $hobby1;
+    private $hobby2;
+    private $hobby3;
 
-    public function __construct(string $name, string $surname, string $description="", string $image="", string $h1="", string $h2="", string $h3="")
+    public function __construct(string $name, string $surname, string $description=" ", string $image=" ", string $hobby1=" ", string $hobby2=" ", string $hobby3=" ")
     {
 
         $this->name = $name;
         $this->surname = $surname;
         $this->description = $description;
         $this->image = $image;
-        $this->h1 = $h1;
-        $this->h2 = $h2;
-        $this->h3 = $h3;
+        $this->hobby1 = $hobby1;
+        $this->hobby2 = $hobby2;
+        $this->hobby3 = $hobby3;
 
     }
 
@@ -63,37 +64,36 @@ class UserInfo
         $this->image = $image;
     }
 
-    public function getH1()
+    public function getHobby1()
     {
-        return $this->h1;
+        return $this->hobby1;
     }
 
-    public function setH1($h1): void
+    public function setHobby1($hobby1): void
     {
-        $this->h1 = $h1;
+        $this->hobby1 = $hobby1;
     }
 
-    public function getH2()
+    public function getHobby2()
     {
-        return $this->h2;
+        return $this->hobby2;
     }
 
-    public function setH2($h2): void
+    public function setHobby2($hobby2): void
     {
-        $this->h2 = $h2;
+        $this->hobby2 = $hobby2;
     }
 
-    public function getH3()
+    public function getHobby3()
     {
-        return $this->h3;
+        return $this->hobby3;
     }
 
-    public function setH3($h3): void
+    public function setHobby3($hobby3): void
     {
-        $this->h3 = $h3;
+        $this->hobby3 = $hobby3;
     }
 
-    private $h3;
 
 
 

@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/profile.css">
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <?php
     session_start();
@@ -11,37 +12,35 @@
 <body>
     <div class="base-container">
         <nav>
-            <img src="public/img/logo.svg">
+            <a href="profile"><img src="public/img/logo.svg"></a>
             <ul>
                 <li>
-                    <a href="#"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
+                    <a href="profile"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
                 </li>
                 <li>
-                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
-                </li>
-                <li>
-                    
-                    <a href="#" ><i class="fas fa-dumbbell"></i><span class = "button">Exercises</span></a>
+                    <a href="friends" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
                 </li>
                 <li>
                     
-                    <a href="#" ><i class="fas fa-map-marked-alt"></i><span class = "button">Gyms</span></a>
+                    <a href="exercises" ><i class="fas fa-dumbbell"></i><span class = "button">Exercises</span></a>
                 </li>
                 <li>
                     
-                    <a href="#" ><i class="fas fa-user-cog"></i><span class = "button">Settings</span></a>
+                    <a href="gyms" ><i class="fas fa-map-marked-alt"></i><span class = "button">Gyms</span></a>
+                </li>
+                <li>
+                    
+                    <a href="settings" ><i class="fas fa-user-cog"></i><span class = "button">Settings</span></a>
                 </li>
             </ul>
         </nav>
         <main>
             <header>
                 <div class="search-bar">
-                    <form>
                         <input placeholder="search exercise">
-                    </form>
                 </div>
                 <div class="add-exercise">
-                    <a href="#">
+                    <a href="addexercise">
                         <i class="fas fa-plus"></i>
                         <span>add exercise</span>
                     </a>
@@ -50,28 +49,28 @@
             <section class="profile">
                 <div id="profile">
                     <div class="user-info">
-                        <img src="public/img/uploads/153681-201912161008-lg2.jpg">
+                        <img src="public/img/uploads/<?=$user->getImage();?>.png">
                         <p id="name"> <?=$user->getName();?> <?=$user->getSurname();?></p>
                         <p id="description"> <?=$user->getDescription();?></p>
                         <div class="tags">
-                            <div id="tag"><?=$user->getH1();?></div>
-                            <div id="tag"><?=$user->getH2();?></div>
-                            <div id="tag"><?=$user->getH3();?></div>
+                            <div id="tag"><?=$user->getHobby1();?></div>
+                            <div id="tag"><?=$user->getHobby2();?></div>
+                            <div id="tag"><?=$user->getHobby3();?></div>
                         </div>
                     </div>
                     <div class="more-info">
                         <div class="teammates">
                             <span>Followers</span>
                             <div class="teammates-photo">
-                                <img src="public/img/uploads/153681-201912161008-lg2.jpg">
-                                <img src="public/img/uploads/153681-201912161008-lg2.jpg">
+                                <img src="public/img/uploads/default_avatar.png">
+                                <img src="public/img/uploads/default_avatar.png">
                             </div>
                         </div>
                         <div class="fav-exercises">
                             <span>fav-exercises</span>
                             <div class="fav-exercises-photo">
-                                <img src="public/img/uploads/153681-201912161008-lg2.jpg">
-                                <img src="public/img/uploads/153681-201912161008-lg2.jpg">
+                                <img src="public/img/uploads/default_avatar.png">
+                                <img src="public/img/uploads/default_avatar.png">
                             </div>
                         </div>
                     </div>

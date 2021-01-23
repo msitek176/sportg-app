@@ -81,6 +81,7 @@ class UserRepository extends Repository
                 return null; //exeption better option
             }
 
+
             return new UserInfo($user['name'],
                 $user['surname'],
                 $user['description'],

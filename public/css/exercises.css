@@ -31,6 +31,7 @@ h2{
 
 p{
     height: 5em;
+    overflow: auto;
 }
 
 .exercises>div{
@@ -62,6 +63,9 @@ p{
         flex-direction: column;
         padding: 2em;
         overflow: auto;
+    }
+    p {
+        font-size:20px;
     }
 
     .exercises>div{

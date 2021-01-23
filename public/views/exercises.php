@@ -2,79 +2,71 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/exercises.css">
-    <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <script type="text/javascript" src="./public/js/statistics.js" defer></script>
+    <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <?php
     session_start();
     ?>
     <title>EXERCISES</title>
 </head>
 <body>
-    <div class="base-container">
-        <nav>
-            <img src="public/img/logo.svg">
-            <ul>
-                <li>
-                    <a href="#"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
-                </li>
-                <li>
-                    <a href="#" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
-                </li>
-                <li>
-                    
-                    <a href="#" ><i class="fas fa-dumbbell"></i><span class = "button">Exercises</span></a>
-                </li>
-                <li>
-                    
-                    <a href="#" ><i class="fas fa-map-marked-alt"></i><span class = "button">Gyms</span></a>
-                </li>
-                <li>
-                    
-                    <a href="#" ><i class="fas fa-user-cog"></i><span class = "button">Settings</span></a>
-                </li>
-            </ul>
-        </nav>
-        <main>
-            <header>
-                <div class="search-bar">
-                        <input placeholder="search exercise">
-                </div>
-                <div class="add-exercise">
-                    <a href="#">
-                        <i class="fas fa-plus"></i>
-                        <span>add exercise</span>
-                    </a>
-                </div>
-            </header>
-            <section class="exercises">
-                <?php foreach ($exercises as $exercise): ?>
-                    <div id="<?=$exercise->getId();?>">
-                        <img src="public/uploads/<?=$exercise->getImage(); ?>">
-                        <div>
-                            <h2><?= $exercise->getName()?></h2>
-                            <span>Series: <?= $exercise->getSeries()?>  Reps: <?= $exercise->getReps()?></span>
-                            <span>Time: <?= $exercise->getTime()?>  </span>
-                            <p><?= $exercise->getDescription()?></p>
-                            <div class="social-section">
-                                <i class="fas fa-heart">
+<div class="base-container">
+    <nav>
+        <a href="profile"><img src="public/img/logo.svg"></a>
+        <ul>
+            <li>
+                <a href="profile"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
+            </li>
+            <li>
+                <a href="friends" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
+            </li>
+            <li>
 
+                <a href="exercises" ><i class="fas fa-dumbbell"></i><span class = "button">Exercises</span></a>
+            </li>
+            <li>
 
-//tu cos nie tak
+                <a href="gyms" ><i class="fas fa-map-marked-alt"></i><span class = "button">Gyms</span></a>
+            </li>
+            <li>
 
-
-
-
-
-                                    <?= $exercise->getCount()?></i>
-                                <i class="fas fa-minus-square"> 101</i>
-                            </div>
+                <a href="settings" ><i class="fas fa-user-cog"></i><span class = "button">Settings</span></a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <div class="search-bar">
+                <input placeholder="search exercise">
+            </div>
+            <div class="add-exercise">
+                <a href="addexercise">
+                    <i class="fas fa-plus"></i>
+                    <span>add exercise</span>
+                </a>
+            </div>
+        </header>
+        <section class="exercises">
+            <?php foreach ($exercises as $exercise): ?>
+                <div id="<?=$exercise->getId();?>">
+                    <img src="public/uploads/<?=$exercise->getImage(); ?>">
+                    <div>
+                        <h2><?= $exercise->getName()?></h2>
+                        <span>Series: <?= $exercise->getSeries()?>  Reps: <?= $exercise->getReps()?></span>
+                        <span>Time: <?= $exercise->getTime()?>  </span>
+                        <p><?= $exercise->getDescription()?></p>
+                        <div class="social-section">
+                            <i class="fas fa-heart">
+                                <?= $exercise->getCount()?></i>
+                            <i class="fas fa-minus-square"> 101</i>
                         </div>
                     </div>
-                <?php endforeach;?>
-            </section>
-        </main>
-    </div>
+                </div>
+            <?php endforeach;?>
+        </section>
+    </main>
+</div>
 </body>
 
 <template id="exercise-template">

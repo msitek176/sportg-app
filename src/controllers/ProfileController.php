@@ -42,17 +42,18 @@ class ProfileController extends AppController
         $date = $_POST['date'];
         $time = $_POST['time'];
         $note = $_POST['note'];
+        $exercises = $this->exerciseRepository->getExercises();
+        $user = $this->userRepository->getUserInfo($_SESSION['user_id']['id_user']);
 
 
-
-        if (is_null(($exercise)||($date)||($time)))
+        if (!strlen($time)||!strlen($exercise)||!strlen($date))
         {
-            return $this->render('profile', ['messages' => ['Please provide proper value']]);
+
+            return $this->render('profile',['messages' => ['Please provide proper value'],'exercises'=>$exercises, 'user'=>$user]);
         }
         $this->exerciseRepository->exerciseDoneDB($exercise,$date,$time,$note);
 
-
-        return $this->render('profile', ['messages' => ['You\'ve been succesfully add exercise!']]);
+        return $this->render('profile',['messages' => ['You\'ve been succesfully add exercise!'],'exercises'=>$exercises, 'user'=>$user]);
     }
 
 
