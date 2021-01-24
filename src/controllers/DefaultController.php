@@ -6,6 +6,7 @@ class DefaultController extends AppController {
 
     public function index(){
         //dddd display login.htnl
+        session_destroy();
         $this->render('login');
     }
 

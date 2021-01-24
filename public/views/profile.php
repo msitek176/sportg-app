@@ -6,6 +6,11 @@
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <?php
     session_start();
+    if (!isset($_SESSION['user_id']['id_user']))
+    {
+        header("Location: index");
+        die();
+    }
     ?>
     <title>PROFILE</title>
 </head>
@@ -92,46 +97,74 @@
                         <input name="time" type="text" placeholder="time">
                         <input name="note" type="textarea" placeholder="note">
                         <button>ADD</button>
-                        <?php
-                        if(isset($messages)){
-                            foreach($messages as $message) {
-                                echo $message;
-                            }
-                        }
-                        ?>
+                       <div class="message">
+                           <?php
+                           if(isset($messages)){
+                               foreach($messages as $message) {
+                                   echo $message;
+                               }
+                           }
+                           ?>
+                       </div>
+
                     </form>
-                    <div class="diagram">
-                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graph" aria-labelledby="title" role="img">
-                            <title id="title">A line chart showing some information</title>
-                          <g class="grid x-grid" id="xGrid">
-                            <line x1="90" x2="90" y1="5" y2="371"></line>
-                          </g>
-                          <g class="grid y-grid" id="yGrid">
-                            <line x1="90" x2="705" y1="370" y2="370"></line>
-                          </g>
-                            <g class="labels x-labels">
-                            <text x="100" y="400">2008</text>
-                            <text x="246" y="400">2009</text>
-                            <text x="392" y="400">2010</text>
-                            <text x="538" y="400">2011</text>
-                            <text x="684" y="400">2012</text>
-                            <text x="400" y="440" class="label-title">Year</text>
-                          </g>
-                          <g class="labels y-labels">
-                            <text x="80" y="15">15</text>
-                            <text x="80" y="131">10</text>
-                            <text x="80" y="248">5</text>
-                            <text x="80" y="373">0</text>
-                            <text x="50" y="200" class="label-title">Price</text>
-                          </g>
-                          <g class="data" data-setname="Our first data set">
-                            <circle cx="90" cy="192" data-value="7.2" r="4"></circle>
-                            <circle cx="240" cy="141" data-value="8.1" r="4"></circle>
-                            <circle cx="388" cy="179" data-value="7.7" r="4"></circle>
-                            <circle cx="531" cy="200" data-value="6.8" r="4"></circle>
-                            <circle cx="677" cy="104" data-value="6.7" r="4"></circle>
-                          </g>
-                          </svg>
+                    <div class="scores">
+                        <div class="summary">
+                            <div>
+                                Today:
+                                <?php
+                                if(isset($today)){
+                                    echo $today;
+                                }
+                                ?>
+                                minutes
+                            </div>
+                            <div>
+                                Last week:
+                                <?php
+                                if(isset($week)){
+                                    echo $week;
+                                }
+                                ?>
+                                minutes
+                            </div>
+                            <div>
+                                Last month:
+                                <?php
+                                if(isset($month)){
+                                    echo $month;
+                                }
+                                ?>
+                                minutes
+                            </div>
+                        </div>
+                       <div class="details">
+                           <span>Details</span>
+                           <table class="description">
+                               <tr>
+                                   <th>Date</th>
+                                   <th>Exercise</th>
+                                   <th>Time</th>
+                                   <th>Note</th>
+                               </tr>
+                               <?php
+                                if(isset($all)){
+                                 foreach($all as $one) {?>
+                                   <tr>
+                                       <th> <?=$one[0]?></th>
+                                       <th><?=$one[1]?></th>
+                                       <th><?=$one[2]?></th>
+                                       <th><?=$one[3]?></th>
+                                   </tr>
+                               <?php
+                                   }
+                               }
+                               ?>
+                           </table>
+
+
+                       </div>
+
                     </div>
                 </div>
             </section>

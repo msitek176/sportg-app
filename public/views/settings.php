@@ -6,6 +6,11 @@
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <?php
     session_start();
+    if (!isset($_SESSION['user_id']['id_user']))
+    {
+        header("Location: index");
+        die();
+    }
     ?>
     <title>SETTINGS</title>
 </head>
@@ -75,7 +80,7 @@
                 <button>SAVE</button>
             </form>
             <div class="logout">
-                <a href="#" class="fas fa-sign-out-alt"></a>
+                <a href="index" class="fas fa-sign-out-alt"></a>
             </div>
         </section>
     </main>

@@ -66,6 +66,12 @@ button{
     color: white;
     margin: 1em;
     line-height: 2.5em;
+
+}
+
+button:focus{
+    box-shadow: 0 0 0.2em black;
+    outline: none;
 }
 
 input{
@@ -124,6 +130,7 @@ li i {
     letter-spacing: 0.7px;
     color:white;
     padding: 0.2em;
+
 }
 
 ul{
@@ -178,6 +185,7 @@ header{
     text-align: center;
     width: 20%;
     font-size: 1.2em;
+
 }
 .add-exercise a{
     margin:  0;
@@ -189,6 +197,7 @@ header{
     gap: 0.5em;
     
 }
+
 
 .add-exercise a span{
     color: white;
@@ -215,7 +224,11 @@ header{
     color: gray;
     margin: 0;
     box-sizing: border-box;
-    
+}
+
+.search-bar input:focus{
+    box-shadow: 0 0 0.2em black;
+    outline: none;
 }
 
 .no-valid{
@@ -370,6 +383,7 @@ header{
  
 
     }
+
     
     .search-bar>form>input{
         background: #FFFFFF 0% 0% no-repeat padding-box;

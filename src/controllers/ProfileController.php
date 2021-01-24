@@ -27,8 +27,70 @@ class ProfileController extends AppController
         $exercises = $this->exerciseRepository->getExercises();
         $user = $this->userRepository->getUserInfo($_SESSION['user_id']['id_user']);
 
-        $this->render('profile',['exercises'=>$exercises, 'user'=>$user]);
+        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']['id_user']);
+        $today = $this->todayExercises($scores);
+        $week = $this->weekExercises($scores);
+        $month = $this->monthExercises($scores);
+        $all = $this->allExercises($scores);
+        $this->render('profile',['exercises'=>$exercises, 'user'=>$user, 'today'=>$today, 'week'=>$week, 'month'=>$month, 'all'=>$all]);
 
+
+    }
+
+    public function todayExercises($scores)
+    {
+        $calc = 0;
+        $today = date("Y-m-d");
+        foreach($scores as $score):
+            //var_dump($score);
+
+            if ($score['date'] == $today)
+                $calc = $calc + (int)trim($score['time']," minutes");
+        endforeach;
+        return $calc;
+    }
+
+    public function weekExercises($scores)
+    {
+        $today = date("Y-m-d");
+        $calc = 0;
+        for($i = 0; $i < 7; $i ++)
+        {
+            $day = date( "Y-m-d", strtotime( "$today -$i day" ) );
+            foreach($scores as $score):
+                if ($score['date'] == $day)
+                    $calc = $calc + (int)trim($score['time']," minutes");
+            endforeach;
+        }
+        return $calc;
+    }
+
+    public function monthExercises($scores)
+    {
+        $week=$this->weekExercises($scores);
+        $today = date("Y-m-d");
+        $calc = $week;
+        for($i = 7; $i < 30; $i ++)
+        {
+            $day = date( "Y-m-d", strtotime( "$today -$i day" ) );
+            foreach($scores as $score):
+                if ($score['date'] == $day)
+
+                    $calc = $calc + (int)trim($score['time']," minutes");
+            endforeach;
+        }
+        return $calc;
+    }
+
+    public function allExercises($scores)
+    {
+        $text_array = [];
+        foreach($scores as $score):
+
+            array_push($text_array,[$score['date'],$score['name'],$score['time'],$score['note']]);
+
+        endforeach;
+        return $text_array;
     }
 
 
@@ -45,16 +107,27 @@ class ProfileController extends AppController
         $exercises = $this->exerciseRepository->getExercises();
         $user = $this->userRepository->getUserInfo($_SESSION['user_id']['id_user']);
 
+        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']['id_user']);
+        $today = $this->todayExercises($scores);
+        $week = $this->weekExercises($scores);
+        $month = $this->monthExercises($scores);
+        $all = $this->allExercises($scores);
 
         if (!strlen($time)||!strlen($exercise)||!strlen($date))
         {
 
-            return $this->render('profile',['messages' => ['Please provide proper value'],'exercises'=>$exercises, 'user'=>$user]);
+            return $this->render('profile',['messages' => ['Please provide proper value'],'exercises'=>$exercises, 'user'=>$user, 'today'=>$today, 'week'=>$week, 'month'=>$month, 'all'=>$all]);
         }
         $this->exerciseRepository->exerciseDoneDB($exercise,$date,$time,$note);
-
-        return $this->render('profile',['messages' => ['You\'ve been succesfully add exercise!'],'exercises'=>$exercises, 'user'=>$user]);
+        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']['id_user']);
+        $today = $this->todayExercises($scores);
+        $week = $this->weekExercises($scores);
+        $month = $this->monthExercises($scores);
+        $all = $this->allExercises($scores);
+        return $this->render('profile',['messages' => ['You\'ve been succesfully add exercise!'],'exercises'=>$exercises, 'user'=>$user, 'today'=>$today, 'week'=>$week, 'month'=>$month, 'all'=>$all]);
     }
+
+
 
 
 

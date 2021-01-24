@@ -156,4 +156,16 @@ class ExerciseRepository extends Repository
             $note
         ]);
     }
+
+    public function selectData($id_user){
+        $stmt = $this->database->connect()->prepare('
+        SELECT date, done_exercise.time, note, name FROM done_exercise JOIN exercises e on done_exercise.id_exercise = e.id_exercise WHERE id_user =?
+         ');
+
+        $stmt->execute([
+            $id_user
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
 }
