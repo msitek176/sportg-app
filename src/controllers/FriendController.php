@@ -26,7 +26,7 @@ class FriendController extends AppController
     }
 
     public function friends(){
-        $friends = $this->friendRepository->getFriendInfo($_SESSION['user_id']['id_user']);
+        $friends = $this->friendRepository->getFriendInfo($_SESSION['user_id']);
         $this->render('friends',['friends'=>$friends]);
 
 
@@ -99,4 +99,13 @@ class FriendController extends AppController
         $all = $this->allExercises($scores);
         $this->render('friend-profile',['friend'=>$friend, 'today'=>$today, 'week'=>$week, 'month'=>$month, 'all'=>$all]);
     }
+
+    public function removeuser(int $id_user)
+    {
+        $removing = $this->friendRepository->removing($id_user);
+        $friends = $this->friendRepository->getFriendInfo($_SESSION['user_id']);
+
+        $this->render('friends',['friends'=>$friends,'communicate'=>$removing]);
+    }
+
 }

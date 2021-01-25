@@ -5,6 +5,7 @@
     <?php
     session_start();
     $_SESSION['user_id'] = 0;
+
     ?>
 </head>
 <body>
@@ -25,6 +26,9 @@
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
                 <button type="submit">LOGIN</button>
+                    <a href="register">
+                        <span>Click here to registrate!</span>
+                    </a>
             </form>
         </div>
 

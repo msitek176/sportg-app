@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <?php
     session_start();
-    if (!isset($_SESSION['user_id']['id_user']))
+    if (!isset($_SESSION['user_id']))
     {
         header("Location: index");
         die();

@@ -17,6 +17,7 @@ Routing::get('settings','SettingsController');
 Routing::get('gyms','GymsController');
 Routing::get('searchGyms','GymsController');
 Routing::get('friends','FriendController');
+Routing::get('removeuser','FriendController');
 Routing::get('friendprofile','FriendController');
 Routing::post('search','ExerciseController');
 Routing::get('addLike','ExerciseController');

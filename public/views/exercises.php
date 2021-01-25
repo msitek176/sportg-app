@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <?php
     session_start();
-    if (!isset($_SESSION['user_id']['id_user']))
+    if (!isset($_SESSION['user_id']))
     {
         header("Location: index");
         die();
@@ -18,10 +18,10 @@
 <body>
 <div class="base-container">
     <nav>
-        <a href="profile"><img src="public/img/logo.svg"></a>
+        <a href="profile""><img src="public/img/logo.svg"></a>
         <ul>
             <li>
-                <a href="profile"><i class="fas fa-user "></i><span class = "button">Profile</span></a>
+                <a href="profile" ><i class="fas fa-user "></i><span class = "button">Profile</span></a>
             </li>
             <li>
                 <a href="friends" ><i class="fas fa-users"></i><span class = "button">Followers</span></a>
@@ -52,19 +52,27 @@
                 </a>
             </div>
         </header>
-        <section class="exercises">
+        <section class="exercises" id="">
+            <input class="hidden" type="hidden" id=" <?php echo $_SESSION['user_id'] ?>">
+
             <?php foreach ($exercises as $exercise): ?>
                 <div id="<?=$exercise->getId();?>">
                     <img src="public/uploads/<?=$exercise->getImage(); ?>">
-                    <div>
+                    <div id = <?php  $_SESSION['user_id']?>>
                         <h2><?= $exercise->getName()?></h2>
                         <span>Series: <?= $exercise->getSeries()?>  Reps: <?= $exercise->getReps()?></span>
                         <span>Time: <?= $exercise->getTime()?>  </span>
                         <p><?= $exercise->getDescription()?></p>
                         <div class="social-section">
-                            <i class="fas fa-heart">
+                            <i class="fas fa-heart
+                            <?php
+                            if (isset($_COOKIE[$_SESSION['user_id']."-".$exercise->getId()]))
+                            { ?> black <?
+                            }
+                            ?>
+                           ">
                                 <?= $exercise->getCount()?></i>
-                            <i class="fas fa-minus-square"> 101</i>
+
                         </div>
                     </div>
                 </div>
@@ -89,8 +97,12 @@
             </div>
             <p>description</p>
             <div class="social-section">
-                <i class="fas fa-heart"> 0</i>
-                <i class="fas fa-minus-square"> 0</i>
+                <i class="fas fa-heart
+                <?php
+                if (isset($_COOKIE[$_SESSION['user_id']."-".$exercise->getId()]))
+                { ?> black <?
+                }
+                ?>"> 0</i>
             </div>
         </div>
     </div>

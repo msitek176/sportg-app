@@ -29,7 +29,7 @@ class SettingsController extends AppController
         $message = [""];
         $userRepository= new UserRepository();
 
-        $user = $userRepository->getUserInfo($_SESSION['user_id']['id_user']);
+        $user = $userRepository->getUserInfo($_SESSION['user_id']);
 
         if(!empty($_POST)){
 
@@ -53,7 +53,7 @@ class SettingsController extends AppController
                 }
             endforeach;
 
-            if($settingsRepository->changeInfo($_SESSION['user_id']['id_user'],$_POST))
+            if($settingsRepository->changeInfo($_SESSION['user_id'],$_POST))
             {
                 $message= ["alles gute"];
             }
@@ -71,7 +71,7 @@ class SettingsController extends AppController
     }
 
     public function passwordChange($settingsRepository){
-        $passwordandsalt = $settingsRepository->checkingSaltAndPassword($_SESSION['user_id']['id_user']);
+        $passwordandsalt = $settingsRepository->checkingSaltAndPassword($_SESSION['user_id']);
 
         $oldpassword = $_POST['old-password'];
 

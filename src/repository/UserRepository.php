@@ -34,11 +34,12 @@ class UserRepository extends Repository
 
         public function getUserId($email){
             $stmt = $this->database->connect()->prepare('
-            SELECT users.id_user from users WHERE email = :email
+            SELECT users.id_user, r.roles FROM users JOIN roles r on users.id_role = r.id_role WHERE email = :email
             ');
             $stmt->bindParam(':email',$email,PDO::PARAM_STR);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
+            $array =  $stmt->fetch(PDO::FETCH_ASSOC);
+            return $array;
         }
 
         public function addUser ($user)

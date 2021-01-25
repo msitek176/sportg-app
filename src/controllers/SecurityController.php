@@ -21,6 +21,11 @@ class SecurityController extends AppController
 
         $user = $userRepository->getUser($email);
 
+        if((strlen($email)||strlen($password))==0)
+        {
+            return $this->render('login',['messages'=>['empty fields!']]);
+        }
+
         if(!$user){
             return $this->render( 'login',['messages'=>['user not exist!']]);
         }
@@ -35,7 +40,11 @@ class SecurityController extends AppController
         }
 
         session_start();
-        $_SESSION['user_id'] = $userRepository->getUserId($email);
+        $user = $userRepository->getUserId($email);
+        $_SESSION['user_id'] = $user['id_user'];
+        //echo  $_SESSION['user_id'];
+        $_SESSION['role'] =$user['roles'];
+        //echo   $_SESSION['role'];
 
         //return $this->render('profile');
 
@@ -57,6 +66,11 @@ class SecurityController extends AppController
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $user = $userRepository->getUser($email);
+
+        if((!strlen($email)||!strlen($password)||!strlen($name)||!strlen($surname)))
+        {
+            return $this->render('register',['messages'=>['empty fields!']]);
+        }
 
         if (!is_null($user))
         {

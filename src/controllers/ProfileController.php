@@ -25,9 +25,11 @@ class ProfileController extends AppController
 
     public function profile(){
         $exercises = $this->exerciseRepository->getExercises();
-        $user = $this->userRepository->getUserInfo($_SESSION['user_id']['id_user']);
+        //var_dump($_SESSION);
+        //echo($_SESSION['user_id']);
+        $user = ($this->userRepository->getUserInfo($_SESSION['user_id']));
 
-        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']['id_user']);
+        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']);
         $today = $this->todayExercises($scores);
         $week = $this->weekExercises($scores);
         $month = $this->monthExercises($scores);
@@ -105,9 +107,9 @@ class ProfileController extends AppController
         $time = $_POST['time'];
         $note = $_POST['note'];
         $exercises = $this->exerciseRepository->getExercises();
-        $user = $this->userRepository->getUserInfo($_SESSION['user_id']['id_user']);
+        $user = $this->userRepository->getUserInfo($_SESSION['user_id']);
 
-        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']['id_user']);
+        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']);
         $today = $this->todayExercises($scores);
         $week = $this->weekExercises($scores);
         $month = $this->monthExercises($scores);
@@ -119,7 +121,7 @@ class ProfileController extends AppController
             return $this->render('profile',['messages' => ['Please provide proper value'],'exercises'=>$exercises, 'user'=>$user, 'today'=>$today, 'week'=>$week, 'month'=>$month, 'all'=>$all]);
         }
         $this->exerciseRepository->exerciseDoneDB($exercise,$date,$time,$note);
-        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']['id_user']);
+        $scores=$this->exerciseRepository->selectData($_SESSION['user_id']);
         $today = $this->todayExercises($scores);
         $week = $this->weekExercises($scores);
         $month = $this->monthExercises($scores);

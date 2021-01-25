@@ -15,13 +15,11 @@ class FriendRepository extends Repository
             $stmt->execute();
 
             $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //var_dump($friends);
             if($friends == false){
                 return null; //exeption better option
             }
 
             foreach ($friends as $friend) {
-               // echo ($friend);
                 $result[] = new Friend(
                     $friend['id_user_details'],
                     $friend['name'],
@@ -37,5 +35,23 @@ class FriendRepository extends Repository
             return $result;
 
         }
+
+        public function removing($id_user)
+        {
+            try{
+                $stmt = $this->database->connect()->prepare('
+            DELETE FROM user_details WHERE id_user_details =:id_user
+            ');
+                $stmt->bindParam(':id_user',$id_user,PDO::PARAM_STR);
+                $stmt->execute();
+
+                return "User has been remove properly!";
+            }
+            catch (Exception $e)
+            {
+                return $e->getMessage();
+            }
+        }
+
 
 }

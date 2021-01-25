@@ -13,7 +13,7 @@ class LikeRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT id_exercise FROM exercise_likes WHERE id_user=:id_user
         ');
-        $stmt->bindParam(':id_user', $_SESSION['user_id']['id_user'], PDO::PARAM_INT);
+        $stmt->bindParam(':id_user', $_SESSION['user_id'], PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         //var_dump("test");

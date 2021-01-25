@@ -40,6 +40,15 @@ form.login{
     border: 1px solid #707070;
     border-radius: 33px;
 }
+
+.login a{
+    justify-content: center;
+    padding-top: 1em;
+    //width:100%;
+    font: 400 18px Arial;
+
+}
+
 form.register{
     display: flex;
     flex-direction: column;
@@ -400,6 +409,10 @@ header{
 
     .button{
         display: none;
+    }
+    .register_button a{
+        font: 400 34px Arial;
+
     }
     
 }
