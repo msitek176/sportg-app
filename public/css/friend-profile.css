@@ -1,6 +1,4 @@
-.diagram{
-    margin: auto 0;
-}
+
 
 .user-info img{
     margin-top: 2em;
@@ -40,8 +38,6 @@
 
 @media only screen and (max-device-width: 420px) {
 
-.diagram{
-    width: 100%;
-    }
+
 
 }

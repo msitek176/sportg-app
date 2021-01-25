@@ -6,6 +6,7 @@ require_once 'src/controllers/ExerciseController.php';
 require_once 'src/controllers/ProfileController.php';
 require_once 'src/controllers/SettingsController.php';
 require_once 'src/controllers/GymsController.php';
+require_once 'src/controllers/FriendController.php';
 
 class Routing{
     public static $routes;

@@ -140,27 +140,30 @@
                         </div>
                        <div class="details">
                            <span>Details</span>
-                           <table class="description">
-                               <tr>
-                                   <th>Date</th>
-                                   <th>Exercise</th>
-                                   <th>Time</th>
-                                   <th>Note</th>
-                               </tr>
-                               <?php
-                                if(isset($all)){
-                                 foreach($all as $one) {?>
+                           <div class="table">
+                               <table class="description">
                                    <tr>
-                                       <th> <?=$one[0]?></th>
-                                       <th><?=$one[1]?></th>
-                                       <th><?=$one[2]?></th>
-                                       <th><?=$one[3]?></th>
+                                       <th>Date</th>
+                                       <th>Exercise</th>
+                                       <th>Time</th>
+                                       <th>Note</th>
                                    </tr>
-                               <?php
+                                   <?php
+                                   if(isset($all)){
+                                       foreach($all as $one) {?>
+                                           <tr>
+                                               <th> <?=$one[0]?></th>
+                                               <th><?=$one[1]?></th>
+                                               <th><?=$one[2]?></th>
+                                               <th><?=$one[3]?></th>
+                                           </tr>
+                                           <?php
+                                       }
                                    }
-                               }
-                               ?>
-                           </table>
+                                   ?>
+                               </table>
+                           </div>
+
 
 
                        </div>

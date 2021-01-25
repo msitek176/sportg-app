@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/friends.css">
     <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="./public/js/friendprofile.js" defer></script>
     <script src="https://kit.fontawesome.com/054f33c2c7.js" crossorigin="anonymous"></script>
     <?php
     session_start();
@@ -52,38 +53,16 @@
             </div>
         </header>
         <section class="friends">
-            <div id="friend 1">
-                <img src="public/img/uploads/karol-paciorek-compressor.jpg">
+            <?php
+            foreach ($friends as $friend): ?>
+            <div id="<?=$friend->getIdUser();?>" class="friend">
+                <a href="friendprofile/<?=$friend->getIdUser();?>">
+                <img src="public/img/uploads/<?=$friend->getImage(); ?>.png">
                 <div>
-                    <h2>imie nazwisko</h2>
-                </div>
+                    <h2><?= $friend->getName()?> <?= $friend->getSurname()?></h2>
+                </div></a>
             </div>
-            <div id="friend 1">
-                <img src="public/img/uploads/karol-paciorek-compressor.jpg">
-                <div>
-                    <h2>imie nazwisko</h2>
-                </div>
-            </div> <div id="friend 1">
-                <img src="public/img/uploads/karol-paciorek-compressor.jpg">
-                <div>
-                    <h2>imie nazwisko</h2>
-                </div>
-            </div> <div id="friend 1">
-                <img src="public/img/uploads/karol-paciorek-compressor.jpg">
-                <div>
-                    <h2>imie nazwisko</h2>
-                </div>
-            </div> <div id="friend 1">
-                <img src="public/img/uploads/karol-paciorek-compressor.jpg">
-                <div>
-                    <h2>imie nazwisko</h2>
-                </div>
-            </div> <div id="friend 1">
-                <img src="public/img/uploads/karol-paciorek-compressor.jpg">
-                <div>
-                    <h2>imie nazwisko</h2>
-                </div>
-            </div>
+            <?php endforeach;?>
         </section>
     </main>
 </div>
