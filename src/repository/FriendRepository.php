@@ -1,8 +1,6 @@
 <?php
-
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Friend.php';
-
 
 class FriendRepository extends Repository
 {
@@ -16,7 +14,7 @@ class FriendRepository extends Repository
 
             $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if($friends == false){
-                return null; //exeption better option
+                return null;
             }
 
             foreach ($friends as $friend) {
@@ -30,10 +28,7 @@ class FriendRepository extends Repository
                     $friend['hobby2'],
                     $friend['hobby3']);
             }
-           // var_dump($result);
-
             return $result;
-
         }
 
         public function removing($id_user)
@@ -52,6 +47,4 @@ class FriendRepository extends Repository
                 return $e->getMessage();
             }
         }
-
-
 }

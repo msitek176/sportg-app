@@ -1,6 +1,5 @@
 <?php
 
-
 class UserInfo
 {
     private $name;
@@ -13,7 +12,6 @@ class UserInfo
 
     public function __construct(string $name, string $surname, string $description=" ", string $image=" ", string $hobby1=" ", string $hobby2=" ", string $hobby3=" ")
     {
-
         $this->name = $name;
         $this->surname = $surname;
         $this->description = $description;
@@ -21,7 +19,6 @@ class UserInfo
         $this->hobby1 = $hobby1;
         $this->hobby2 = $hobby2;
         $this->hobby3 = $hobby3;
-
     }
 
     public function getName(): string
@@ -93,8 +90,5 @@ class UserInfo
     {
         $this->hobby3 = $hobby3;
     }
-
-
-
 
 }

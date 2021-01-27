@@ -5,7 +5,6 @@ body{
     width: 100vw;
     height: 100vh;
     background: transparent linear-gradient(180deg, #FFA200 0%, #FFCC00 100%) 0% 0% no-repeat padding-box;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -15,7 +14,6 @@ body{
 .logo{
     width: 50%;
     text-align: center;
-    
 }
 
 .login-container{
@@ -34,7 +32,6 @@ form.login{
     align-items: center;
     width: 55%;
     height: 40vh;
-
     background: #FFFFFFE0 0% 0% no-repeat padding-box;
     box-shadow: 0px 6px 6px #00000029;
     border: 1px solid #707070;
@@ -44,9 +41,8 @@ form.login{
 .login a{
     justify-content: center;
     padding-top: 1em;
-    //width:100%;
+    width:100%;
     font: 400 18px Arial;
-
 }
 
 form.register{
@@ -57,7 +53,6 @@ form.register{
     width: 55%;
     height: 65vh;
     overflow: auto;
-
     background: #FFFFFFE0 0% 0% no-repeat padding-box;
     box-shadow: 0px 6px 6px #00000029;
     border: 1px solid #707070;
@@ -69,13 +64,11 @@ button{
     box-shadow: 0px 6px 6px #00000029;
     border: 1px solid #707070;
     border-radius: 21px;
-
     width: 50%;
     border: none;
     color: white;
     margin: 1em;
     line-height: 2.5em;
-
 }
 
 button:focus{
@@ -104,7 +97,6 @@ nav{
     width: 20vw;
     height: 100%;
     background: transparent linear-gradient(180deg, #FFB600 0%, #FFAA00 100%) 0% 0% no-repeat padding-box;
-
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
@@ -121,7 +113,6 @@ a {
     line-height: 2em;
     color: black;
     width: 90%;
-    
 }
 
 li i {
@@ -139,7 +130,6 @@ li i {
     letter-spacing: 0.7px;
     color:white;
     padding: 0.2em;
-
 }
 
 ul{
@@ -152,7 +142,6 @@ ul{
     padding: 0;
     width: calc(100% - 40px);
     position: relative;
-   
 }
 
 li{
@@ -164,7 +153,6 @@ li:last-child{
     position: absolute;
     bottom: 0;
     width: 100%;
-
 }
 
 .fa, 
@@ -184,7 +172,6 @@ header{
     justify-content: space-between;
     padding: 1em 2em;
     border-bottom: 1px solid gray;
-
 }
 
 .add-exercise {
@@ -194,7 +181,6 @@ header{
     text-align: center;
     width: 20%;
     font-size: 1.2em;
-
 }
 .add-exercise a{
     margin:  0;
@@ -204,14 +190,12 @@ header{
     display: flex;
     justify-content: center;
     gap: 0.5em;
-    
 }
 
 
 .add-exercise a span{
     color: white;
     letter-spacing: 0.1em;
-
 }
 
 .add-exercise a i {
@@ -221,7 +205,6 @@ header{
 
 .search-bar{
     width: 40%;
-
 }
 
 .search-bar>input{
@@ -269,7 +252,6 @@ header{
     }
     form.register{
         width: 90%;
-
     }
     img, #logo{
         height: 5em;
@@ -281,7 +263,6 @@ header{
         display: flex;
         align-items: center;
         justify-content: flex-start;
-
     }
 
     *{
@@ -309,12 +290,9 @@ header{
         width: 100%;
         display: flex;
         flex-direction: column;
-
         margin: 0;
     }
 
-
-    
     nav ul li a span{
         display: none;
     }
@@ -329,7 +307,6 @@ header{
         padding: 0;
         width: 80%;
         display: flex;
-
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -360,7 +337,6 @@ header{
         border-bottom: 0px;
         margin-top: 0.5em;
         margin-bottom: 0;
-        
     }
 
 
@@ -389,8 +365,6 @@ header{
     .search-bar{
         width: 70%;
         height: 100%;
- 
-
     }
 
     
@@ -412,7 +386,5 @@ header{
     }
     .register_button a{
         font: 400 34px Arial;
-
     }
-    
 }

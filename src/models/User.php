@@ -1,6 +1,5 @@
 <?php
 
-
 class User
 {
     private $email;
@@ -9,7 +8,6 @@ class User
     private $surname;
     private $salt;
 
-
     public function __construct(string $email, string $password, string $name, string $surname, string $salt)
     {
         $this->email = $email;
@@ -17,7 +15,6 @@ class User
         $this->name = $name;
         $this->surname = $surname;
         $this->salt = $salt;
-
     }
 
     public function getEmail(): string

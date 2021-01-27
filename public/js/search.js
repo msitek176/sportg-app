@@ -4,7 +4,6 @@ const exerciseContainer= document.querySelector(".exercises");
 search.addEventListener("keyup", function (event){
     if (event.key === "Enter"){
         event.preventDefault();
-
         const data = {search: this.value};
 
         fetch("/search", {
@@ -17,8 +16,6 @@ search.addEventListener("keyup", function (event){
             return response.json();
         }).then(function (exercises){
             exerciseContainer.innerHTML = "";
-
-
             loadExercises(exercises)
         });
     }
@@ -26,7 +23,6 @@ search.addEventListener("keyup", function (event){
 
 function loadExercises(exercises) {
     exercises.forEach(exercise =>{
-        console.log(exercise);
         createExercise(exercise);
     });
 }
@@ -50,7 +46,6 @@ function createExercise(exercise){
     time.innerHTML = exercise.time;
     const like = clone.querySelector(".fa-heart");
     like.innerText = exercise.count;
-
 
     exerciseContainer.appendChild(clone);
 }

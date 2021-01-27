@@ -1,8 +1,0 @@
-✓ pasek z ćwiczeniami, mozliwosc wpisywania i podpowiedzi 
-✓załadowanie podstrony, a nie całej strony w html
-✓ w friends zamiast wyszukiwania cwiczenia, wyszukiwanie znajmoych xD
--dodac przycik ulubione cwiczenia
--ciasteczka
--uzupelnienie bazy
--posprzatanie
--alfabetycznie silki

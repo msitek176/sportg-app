@@ -1,20 +1,16 @@
 <?php
 
-
 class Gym
 {
     private $address;
     private $name;
     private $image;
 
-
-
     public function __construct($address, $name, $image)
     {
         $this->address = $address;
         $this->name = $name;
         $this->image = $image;
-
     }
 
     public function getAddress()
@@ -46,7 +42,5 @@ class Gym
     {
         $this->image = $image;
     }
-
-
 
 }

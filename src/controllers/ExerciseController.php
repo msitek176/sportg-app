@@ -1,22 +1,18 @@
 <?php
-
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Exercise.php';
 require_once __DIR__.'/../repository/ExerciseRepository.php';
 
-
 session_start();
-
 
 class ExerciseController extends AppController
 {
     const MAX_FILE_SIZE = 1024*1024;
     const SUPPORTED_TYPES= ['image/png','image/jpeg'];
-    const UPLOAD_DIRECTORY = '/../public/uploads/';
+    const UPLOAD_DIRECTORY = '/../public/img/uploads/';
 
     private $messages = [];
     private $exerciseRepository;
-
 
     public function __construct()
     {
@@ -27,10 +23,7 @@ class ExerciseController extends AppController
     public function exercises(){
         $exercises = $this->exerciseRepository->getExercises();
 
-
-        //$this->exerciseRepository->ifLike();
         $this->render('exercises',['exercises'=>$exercises]);
-
     }
 
     public function addExercise()
@@ -40,7 +33,6 @@ class ExerciseController extends AppController
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
-
             );
 
             $exercise= new Exercise($_POST['name'], $_POST['description'],$_POST['time'],$_POST['reps'],$_POST['series'],$_FILES['file']['name'],$_POST['count'],$_POST['id_exercise']);
@@ -55,7 +47,6 @@ class ExerciseController extends AppController
 
     public function search()
     {
-
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]): '';
 
         if($contentType === "application/json"){
@@ -69,8 +60,6 @@ class ExerciseController extends AppController
         }
     }
 
-    //protected $id_user=1;
-
     public function addLike(int $id_exercise) {
         $this->exerciseRepository->addLike($id_exercise);
         http_response_code(200);
@@ -80,18 +69,6 @@ class ExerciseController extends AppController
         $this->exerciseRepository->removeLike($id_exercise);
         http_response_code(200);
     }
-
-   /* public function ifLike($id_exercise){
-        echo "tutaj";
-        $like=$this->exerciseRepository->ifLike($id_exercise);
-        if(is_null($like)){
-            $this->exerciseRepository->addLike($id_exercise);
-        }
-        else{
-            $this->exerciseRepository->removeLike($id_exercise);
-        }
-        http_response_code(200);
-    }*/
 
     private function validate(array $file):bool
     {
@@ -104,9 +81,6 @@ class ExerciseController extends AppController
             $this->messages[]='File type is not supported';
             return false;
         }
-
         return true;
     }
-
-
 }

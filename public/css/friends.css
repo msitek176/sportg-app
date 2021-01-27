@@ -14,7 +14,6 @@ section{
     margin: 0 auto;
 }
 
-
 .friend_img{
     height:30em;
     width:30em;
@@ -28,16 +27,12 @@ section{
 .delete_user{
     display: flex;
     justify-content: center;
-
 }
 
 .delete_user>a {
     display: flex;
     justify-content: center;
 }
-
-
-
 
 @media only screen and (max-device-width: 420px) {
     section{
@@ -47,7 +42,7 @@ section{
         overflow: auto;
     }
 
-    .friends>div>a{
+    .friend_img{
         height:20em;
         width:20em;
         display: flex;
@@ -58,8 +53,7 @@ section{
         margin: 0 auto;
     }
 
-    
-    .friends>div>a>img {
+    .friend_img>img {
         height: 80%;
         width: 80%;
         object-fit: cover;

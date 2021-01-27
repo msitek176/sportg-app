@@ -1,5 +1,4 @@
 <?php
-
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Exercise.php';
 
@@ -7,41 +6,13 @@ session_start();
 
 class ExerciseRepository extends Repository
 {
-
-    public function getExercise(string $id_exercise): ?Exercise
-    {
-        $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.exercise WHERE id_exercise = :id_exercise
-            ');
-        $stmt->bindParam(':id_exercise', $id_exercise, PDO::PARAM_INT);
-        $stmt->execute();
-
-        $exercise = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($exercise == false) {
-            return null; //exeption better option
-        }
-
-        return new Exercise(
-            $exercise['name'],
-            $exercise['description'],
-            $exercise['time'],
-            $exercise['series'],
-            $exercise['reps'],
-            $exercise['image'],
-            $exercise['count'],
-            $exercise['id_exercise']
-        );
-    }
-
     public function addExercise(Exercise $exercise): void
     {
         $date = new DateTime();
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.exercise_create (id_user, created_at)
+            INSERT INTO exercise_create (id_user, created_at)
             VALUES (?,?);
             ');
-
 
         $stmt->execute([
             $_SESSION['user_id'],
@@ -49,7 +20,7 @@ class ExerciseRepository extends Repository
         ]);
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.exercises (name, description, time, series, reps, image)
+            INSERT INTO exercises (name, description, time, series, reps, image)
             VALUES (?, ?, ?, ?, ?, ?)
             ');
 
@@ -60,14 +31,12 @@ class ExerciseRepository extends Repository
             $exercise->getSeries(),
             $exercise->getReps(),
             $exercise->getImage()
-
         ]);
     }
 
     public function getExercises(): array
     {
         $result = [];
-
         $stmt = $this->database->connect()->prepare('
         SELECT exercises.*, CASE WHEN ela.count is NULL THEN 0 ELSE ela.count END FROM exercises LEFT JOIN exercise_like_amount ela on exercises.id_exercise = ela.id_exercise
         ');
@@ -75,7 +44,6 @@ class ExerciseRepository extends Repository
         $exercises = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($exercises as $exercise) {
-
             $result[] = new Exercise(
                 $exercise['name'],
                 $exercise['description'],
@@ -101,20 +69,17 @@ class ExerciseRepository extends Repository
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
         $stmt->execute();
 
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function addLike(int $id_exercise)
     {
-
         $stmt = $this->database->connect()->prepare('
             INSERT INTO exercise_likes VALUES (?, ?)
          ');
 
         $stmt->execute([$_SESSION['user_id'], $id_exercise]);
     }
-
 
     public function removeLike(int $id_exercise)
     {
@@ -126,26 +91,10 @@ class ExerciseRepository extends Repository
         $stmt->execute([$_SESSION['user_id'], $id_exercise]);
     }
 
-    public function ifLike($id_exersice)
-    {
-        $stmt = $this->database->connect()->prepare('
-            SELECT id_exercise FROM exercise_likes WHERE id_user=:id_user
-        ');
-        $stmt->bindParam(':id_user', $_SESSION['user_id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        //var_dump("test");
-        if (in_array($id_exersice, $result)) {
-            return 1;
-        }
-        return 0;
-
-    }
-
     public function exerciseDoneDB($id_exercise,$date,$time,$note){
         $stmt = $this->database->connect()->prepare('
             INSERT INTO done_exercise(id_user,id_exercise,date,time,note)
-            VALUES (?, ?,?,?,?)
+            VALUES (?,?,?,?,?)
          ');
 
         $stmt->execute([
@@ -159,13 +108,12 @@ class ExerciseRepository extends Repository
 
     public function selectData($id_user){
         $stmt = $this->database->connect()->prepare('
-        SELECT date, done_exercise.time, note, name FROM done_exercise JOIN exercises e on done_exercise.id_exercise = e.id_exercise WHERE id_user =?
+        SELECT date, done_exercise.time, note, name FROM done_exercise JOIN exercises e on done_exercise.id_exercise = e.id_exercise WHERE id_user =? ORDER BY date DESC 
          ');
 
         $stmt->execute([
             $id_user
         ]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
 }

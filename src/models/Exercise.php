@@ -1,6 +1,5 @@
 <?php
 
-
 class Exercise
 {
     private $name;
@@ -24,12 +23,10 @@ class Exercise
         $this->id_exercise = $id_exercise;
     }
 
-
     public function getName(): string
     {
         return $this->name;
     }
-
 
     public function setName(string $name)
     {
@@ -41,7 +38,6 @@ class Exercise
         return $this->description;
     }
 
-
     public function setDescription(string $description): void
     {
         $this->description = $description;
@@ -51,7 +47,6 @@ class Exercise
     {
         return $this->time;
     }
-
 
     public function setTime(string $time): void
     {
@@ -78,12 +73,10 @@ class Exercise
         $this->reps = $reps;
     }
 
-
     public function getImage(): string
     {
         return $this->image;
     }
-
 
     public function setImage(string $image): void
     {
@@ -94,7 +87,6 @@ class Exercise
     {
         return $this->count;
     }
-
 
     public function setCount(int $count): void
     {

@@ -1,14 +1,10 @@
 <?php
-
 require_once 'Repository.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/UserInfo.php';
 
-
-
 class SettingsRepository extends Repository
 {
-
         public function passwordChanges($id_user,$new_password): void
         {
             $stmt = $this->database->connect()->prepare('
@@ -17,7 +13,6 @@ class SettingsRepository extends Repository
             $stmt->bindParam(':new_password',$new_password,PDO::PARAM_STR);
             $stmt->bindParam(':id_user',$id_user,PDO::PARAM_INT);
             $stmt->execute();
-
         }
 
         public function checkingSaltAndPassword($id_user)
@@ -27,13 +22,11 @@ class SettingsRepository extends Repository
             ');
             $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
             $stmt->execute();
-
             $passwordandsalt = $stmt->fetch(PDO::FETCH_ASSOC);
 
             return $passwordandsalt;
 
         }
-
 
         public function changeInfo($id_user,$infoArray)
         {
@@ -46,12 +39,10 @@ class SettingsRepository extends Repository
                     $stmt->bindParam(':name',$infoArray['name'],PDO::PARAM_STR);
                     $stmt->bindParam(':surname',$infoArray['surname'],PDO::PARAM_STR);
                     $stmt->bindParam(':description',$infoArray['description'],PDO::PARAM_STR);
-                    //$stmt->bindParam(':image',$infoArray['image'],PDO::PARAM_STR);
                     $stmt->bindParam(':hobby1',$infoArray['hobby1'],PDO::PARAM_STR);
                     $stmt->bindParam(':hobby2',$infoArray['hobby2'],PDO::PARAM_STR);
                     $stmt->bindParam(':hobby3',$infoArray['hobby3'],PDO::PARAM_STR);
                     $stmt->bindParam(':id_user',$id_user,PDO::PARAM_STR);
-
                     $stmt->execute();
                 }
                 catch (Exception $e)
@@ -60,8 +51,5 @@ class SettingsRepository extends Repository
                 }
 
                 return 1;
-
         }
-
-
 }

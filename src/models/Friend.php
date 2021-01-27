@@ -1,6 +1,5 @@
 <?php
 
-
 class Friend
 {
     private $id_user;
@@ -28,7 +27,6 @@ class Friend
     {
         return $this->id_user;
     }
-
 
     public function setIdUser($id_user): void
     {
@@ -59,7 +57,6 @@ class Friend
     {
         return $this->description;
     }
-
 
     public function setDescription($description): void
     {
