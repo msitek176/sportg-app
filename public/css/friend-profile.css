@@ -1,0 +1,32 @@
+.user-info img{
+    margin-top: 2em;
+}
+.add-friend{
+    background: #FFB300 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 1.5em;
+    text-align: center;
+    width: 60%;
+    font-size: 1.2em;
+    margin: 0 auto;
+}
+
+.add-friend a{
+    margin:  0 ;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.add-friend a span{
+    color: black;
+    letter-spacing: 0.1em;
+}
+
+.add-friend a i {
+    margin: auto 0;
+    color: black;
+}

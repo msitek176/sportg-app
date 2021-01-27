@@ -1,0 +1,63 @@
+section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2em;
+    padding: 2em;
+    overflow: auto;
+}
+
+.friend_img>img {
+    height: 80%;
+    width: 80%;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.friend_img{
+    height:30em;
+    width:30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    justify-content: center;
+}
+
+.delete_user{
+    display: flex;
+    justify-content: center;
+}
+
+.delete_user>a {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-device-width: 420px) {
+    section{
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        overflow: auto;
+    }
+
+    .friend_img{
+        height:20em;
+        width:20em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .friend_img>img {
+        height: 80%;
+        width: 80%;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+}

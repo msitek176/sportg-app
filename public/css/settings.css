@@ -1,0 +1,113 @@
+
+.settings {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto 5em;
+}
+
+.settings-form {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5em auto;
+    padding-top: 3em;
+    gap: 1em;
+}
+
+.settings input, textarea {
+    width: 90%;
+    padding: 1em;
+    padding-top: 2em;
+    margin: auto;
+}
+.hobby{
+    display: flex;
+}
+.hobby input{
+    width:23.25%;
+}
+
+.password{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.settings-form button{
+    width: 60%;
+    margin:0 auto;
+    margin-top: 2em;
+}
+
+#file {
+    font: 400 13.3333px Arial;
+    color: gray;
+}
+
+.password span {
+    font: normal normal  15px/17px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+}
+
+.settings button{
+    width: 40%;
+}
+
+.logout{
+    width: 100%;
+    margin:0;
+    position: relative;
+    padding: 1.5em;
+}
+
+.logout a {
+    font-size: 2.5em;
+    margin:0 auto;
+    position: absolute;
+    bottom: 0;
+    right: 0.5em;
+}
+
+@media only screen and (max-device-width: 420px) {
+
+    .settings{
+        display: flex;
+        flex-direction: column;
+        padding: 0 1em;
+        overflow: auto;
+        margin: 0;
+        height: 90%;
+    }
+    .settings-form{
+        width: 100%;
+        padding-top: 0em;
+        margin-top: 0em;
+        margin-bottom: 0em;
+    }
+    .settings-form #file{
+        font-size: 36px;
+    }
+    .password span{
+        font-size: 39px;
+        padding-bottom: 1em;
+    }
+    .settings-form input{
+        padding: 1em;
+    }
+
+    .logout{
+        padding: 0;
+        padding-top: 5em;
+    }
+
+    .logout a{
+        right: 1em;
+    }
+    .password {
+        gap:1em;
+    }
+}
