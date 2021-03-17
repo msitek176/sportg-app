@@ -1,4 +1,4 @@
-# Advanced Technologies Of Web Application Development
+# SPORTG
   
 Small school project of web application consist in monitoring activity and learn how to properly do exercises, especially on gym.
 
