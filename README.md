@@ -1,29 +1,17 @@
-# README #
+# Advanced Technologies Of Web Application Development
+  
+Small school project of web application consist in monitoring activity and learn how to properly do exercises, especially on gym.
 
-This README would normally document whatever steps are necessary to get your application up and running.
+ ERD diagram
+ <img src="https://github.com/msitek176/sportg-app/blob/master/public/img/uploads/erd.png">
+<details>
+  <summary><b>Views</b><br></summary>
+    <img src="https://github.com/msitek176/sportg-app/blob/master/public/img/uploads/login.png?raw=true">
+    <img src="https://github.com/msitek176/sportg-app/blob/master/public/img/uploads/profile1.png?raw=true">
+  <img src="https://github.com/msitek176/sportg-app/blob/master/public/img/uploads/exercises.png?raw=true">
+  <img src="https://github.com/msitek176/sportg-app/blob/master/public/img/uploads/add.png?raw=true">
+ </details>
+ 
 
-### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+ 
